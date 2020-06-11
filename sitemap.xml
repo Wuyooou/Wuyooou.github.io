@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wuyooou.github.io/Life/Hello-World-0/hello-world.html</loc>
+    
+    <lastmod>2020-06-11T08:00:57.215Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wuyooou.github.io/tags/index.html</loc>
     
     <lastmod>2020-06-11T02:20:22.102Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://wuyooou.github.io/about/index.html</loc>
     
     <lastmod>2020-06-11T02:19:30.255Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wuyooou.github.io/uncategorized/Hello-World-0/hello-world.html</loc>
-    
-    <lastmod>2020-06-08T13:16:19.906Z</lastmod>
     
   </url>
   
