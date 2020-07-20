@@ -31,7 +31,7 @@
 <meta property="og:description" content="翻译SCIP的Python版教程">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-19T07:28:27.000Z">
-<meta property="article:modified_time" content="2020-07-19T09:59:51.157Z">
+<meta property="article:modified_time" content="2020-07-20T13:23:36.906Z">
 <meta property="article:author" content="Wu">
 <meta property="article:tag" content="翻译">
 <meta property="article:tag" content="Python">
@@ -203,10 +203,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-07-19 15:28:27 / 修改时间：17:59:51" itemprop="dateCreated datePublished" datetime="2020-07-19T15:28:27+08:00">2020-07-19</time>
+              <time title="创建时间：2020-07-19 15:28:27" itemprop="dateCreated datePublished" datetime="2020-07-19T15:28:27+08:00">2020-07-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-20 21:23:36" itemprop="dateModified" datetime="2020-07-20T21:23:36+08:00">2020-07-20</time>
+              </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -221,7 +227,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>318</span>
+              <span>704</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -241,7 +247,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>SICP（Structure and Interpretation of Computer Programs）是计算机科学界的圣经，在Github的<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tlaXRobnVsbC9UZWFjaFlvdXJzZWxmQ1MtQ04vYmxvYi9tYXN0ZXIvVGVhY2hZb3Vyc2VsZkNTLUNOLm1k">计算机科学自学入门课程<i class="fa fa-external-link-alt"></i></span>中，第一课就是SICP。只不过，原先的SICP课程用的是Scheme语言，尽管很多文章分析过学习Scheme的趣味性（而非必要性），我依然决定寻找SICP的Python版。尤其是又阅读一些文章后，得知这本书的精华在于计算机科学的思想而非技术，我毅然决定用Python（尤其是在我已经下载好Python 3的前提下）。Github上有<span class="exturl" data-url="aHR0cHM6Ly93aXphcmRmb3JjZWwuZ2l0Ym9va3MuaW8vc2ljcC1pbi1weXRob24vY29udGVudC9pbmRleC5odG1s">SICP的Python版<i class="fa fa-external-link-alt"></i></span>，我督促自己在学习这份课程的同时也能翻译一些重要内容。准确地说，这一系列文章实际上是我的学习笔记，我并不打算逐字逐句翻译。</p>
+        <p>SICP（Structure and Interpretation of Computer Programs）是计算机科学界的圣经，Github的<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tlaXRobnVsbC9UZWFjaFlvdXJzZWxmQ1MtQ04vYmxvYi9tYXN0ZXIvVGVhY2hZb3Vyc2VsZkNTLUNOLm1k">计算机科学自学入门课程<i class="fa fa-external-link-alt"></i></span>中，第一课就是SICP。只不过，原先的SICP课程用的是Scheme语言，尽管很多文章分析过学习Scheme的趣味性（而非必要性），我依然决定寻找SICP的Python版。尤其是在阅读一些文章后，得知这本书的精华在于计算机科学的思想而非技术，我毅然选择了Python（主要是因为我已经下载好了Python 3）。Github上有<span class="exturl" data-url="aHR0cHM6Ly93aXphcmRmb3JjZWwuZ2l0Ym9va3MuaW8vc2ljcC1pbi1weXRob24vY29udGVudC9pbmRleC5odG1s">SICP的Python版<i class="fa fa-external-link-alt"></i></span>，我督促自己在学习这份课程的同时也能翻译一些重要内容。准确地说，这一系列文章实际上是我的学习笔记，我并不打算逐字逐句翻译。</p>
+<h1 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h1><p>这本书重点在于介绍如何编写program来运行process，尽管这两个词都被翻译成“程式”或“程序”，但它们是两个完全不同的东西，我没有找到相对应的翻译，所以简单概括一下两者差异，具体解释详见<span class="exturl" data-url="aHR0cHM6Ly90ZWNoZGlmZmVyZW5jZXMuY29tL2RpZmZlcmVuY2UtYmV0d2Vlbi1wcm9ncmFtLWFuZC1wcm9jZXNzLmh0bWw=">这篇文章<i class="fa fa-external-link-alt"></i></span>：我们使用一些指令编写program，然后由不同的program组成process，因此program是被动但永恒的，它不会主动运行（就像我们用C语言写出来的一个脚本），它一旦写成就有特定的功能；process则是主动但暂时的，它能够自主运行，却在完成具体任务后就结束。</p>
+<h2 id="1-1-1用Python编程"><a href="#1-1-1用Python编程" class="headerlink" title="1.1.1用Python编程"></a>1.1.1用Python编程</h2><p>如今Python是一门被广泛使用的编程语言，学习Python就进入了一个丰盛的开源社区，人们分享各自的代码，为他人解决问题，也寻求各种帮助。当然这本书的重点不在于深入学习Python而是了解计算机原理，所以如果想进一步学习这门语言，推荐<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RpdmVpbnRvbWFyay9kaXZlaW50b3B5dGhvbjM=">Dive into Python 3<i class="fa fa-external-link-alt"></i></span>.</p>
 
     </div>
 
@@ -341,6 +349,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-1-简介"><span class="nav-number">1.</span> <span class="nav-text">1.1 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-1用Python编程"><span class="nav-number">1.1.</span> <span class="nav-text">1.1.1用Python编程</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
